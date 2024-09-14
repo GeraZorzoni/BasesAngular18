@@ -1,4 +1,10 @@
 {
     "prettier.bracketSameLine": true,
-    "prettier.printWidth": 120
+    "prettier.printWidth": 120,
+    "angular-schematics.schematicsDefaultOptions": {
+        "angular-*": {
+            "externalTemplate": true,
+            "inlineStyle": true
+        }
+    }
 }

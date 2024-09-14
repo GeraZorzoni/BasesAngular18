@@ -3,7 +3,8 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: 'dashboard',
-    loadComponent: () => import('./dashboard/dashboard.component'), //export default component en el componente
+    loadComponent: () => import('./dashboard/dashboard.component'),
+    //export default component en el componente
     children: [
       {
         path: 'change-detection',
@@ -57,6 +58,19 @@ export const routes: Routes = [
             './dashboard/pages/view-transition/view-transition2.component'
           ),
       },
+      {
+        path: 'inputs-outputs',
+        title: 'Inputs Outputs',
+        // agregar default a la export del componente
+        loadComponent: () =>
+          import('./dashboard/pages/input-output/input-output.component'),
+      },
+      {
+        path: 'material',
+        title: 'Angular Material',
+        loadComponent: () =>
+          import('./dashboard/pages/material/material.component'),
+      },
 
       {
         path: '',
@@ -67,7 +81,14 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/dashboard',
+    //redirectTo: '/dashboard',
+    redirectTo: (route) => {
+      //console.log(route);
+      // const  authService = inject(AuthService)
+      // if (authService.isLoggedIn){
+
+      return '/dashboard';
+    },
     pathMatch: 'full',
   },
 ];
